@@ -1,0 +1,32 @@
+<a class="tc-job-summary" href="google.com/asdasdasdasd" title="">
+    <div data-c-card data-c-radius="rounded" data-c-grid data-c-margin="bottom(normal)" data-c-colour="black" data-c-background="white(100)">
+        <div data-c-grid-item="base(1of1) tl(5of6)" data-c-padding="all(normal)">
+            <div data-c-grid="gutter">
+                <div data-c-grid-item="base(1of1)">
+                    <p data-c-font-size="h4" data-c-font-weight="bold" class="title" data-c-margin="bottom(half)">{{ job.classification }}: {{ job.title }}</p>
+                    <p class="department">{{ job.department }}</p>
+                    <p class="location">{% if job.remote == true %}Remote / {%  endif %}{{ job.city }}, {{ job.province }}</p>
+                </div>
+                {# <div data-c-grid-item="base(1of1) tl(1of3)">
+                    <p class="department">{{ job.department }}</p>
+                    <p class="location">{% if job.remote == true %}Remote / {%  endif %}{{ job.city }}, {{ job.province }}</p>
+                </div> #}
+                <div data-c-grid-item="base(1of1) tl(1of2)">
+                    <p><span data-c-font-weight="600">Annual Salary:</span> $80,000 - $120,000</p>
+                    <p><span data-c-font-weight="600">Term Duration</span>: 12 Months</p>
+                </div>
+                <div data-c-grid-item="base(1of1) tl(1of2)">
+                    <p><span data-c-font-weight="600">Language:</span> Bilingual Required</p>
+                    <p><span data-c-font-weight="600">Applicants:</span> 3</p>
+                </div>
+            </div>
+        </div>
+        <div data-c-grid-item="base(1of1) tl(1of6) equal-col" class="apply gradient-left-right" data-c-colour="white">
+            <div data-c-padding="all(normal)" data-c-align="base(left) tl(center)">
+                <span class="apply-label">Apply by:</span>
+                <span class="apply-value" data-c-font-weight="900">{{ job.day }}</span>
+                <span class="apply-month">{{ job.month }}</span>
+            </div>
+        </div>
+    </div>
+</a>

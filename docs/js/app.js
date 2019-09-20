@@ -1,0 +1,1 @@
+$("#tc-recommendation-trigger").on("click",function(t){$(this).toggleClass("active"),$("#tc-recommendation-content").toggleClass("hidden")}),$("#tc-filter-trigger").on("click",function(t){$(this).toggleClass("active"),$("#tc-filter-content").toggleClass("hidden")});

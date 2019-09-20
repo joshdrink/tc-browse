@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        {# Site Title #}
+        <title>Talent Cloud: Applicant Browse Jobs</title>
+        
+        {# Charset #}
+        <meta charset="utf-8" />
+
+        {# Compatibility #}
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge">
+
+        {# Viewport #}
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+        {# Generic Google Fonts #}
+        <link
+            href="https://fonts.googleapis.com/css?family=Euphoria+Script|Open+Sans:400,400i,600,600i,800,800i&amp;subset=latin-ext"
+            rel="stylesheet">
+
+        {# Material Icons #}
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet">
+
+        {# Your CSS #}
+        <link 
+            async 
+            href="css/app.css"
+            rel="stylesheet">
+
+        {# Favicons #}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#b91d47">
+        <meta name="msapplication-TileColor" content="#b91d47">
+        <meta name="theme-color" content="#b91d47">
+
+    </head>
+
+    {# Playground's Body #}
+    <body data-clone>
+
+        {% set jobs = [
+            {
+                "classification": "GT-3",
+                "title": "Content Designer",
+                "department": "Canada School of the Public Service",
+                "remote": false,
+                "city": "Edmonton",
+                "province": "AB",
+                "day": 30,
+                "month": "September",
+                "recommended": true
+            },
+            {
+                "classification": "CS-2",
+                "title": "Front-end Developer",
+                "department": "Treasury Board of Canada Secretariat",
+                "remote": true,
+                "city": "Ottawa",
+                "province": "ON",
+                "day": 21,
+                "month": "September",
+                "recommended": true
+            },
+            {
+                "classification": "AS-5",
+                "title": "Real Property Specialist",
+                "department": "Agriculture and Agri-food Canada",
+                "remote": true,
+                "city": "Hamilton",
+                "province": "ON",
+                "day": 14,
+                "month": "August",
+                "recommended": false
+            },
+            {
+                "classification": "HD-7",
+                "title": "Service Director of Digital Product for Citizen Engagement",
+                "department": "Finance Canada",
+                "remote": false,
+                "city": "Ottawa",
+                "province": "ON",
+                "day": 18,
+                "month": "December",
+                "recommended": false
+            },
+            {
+                "classification": "EC-6",
+                "title": "Work Ethics Analyst",
+                "department": "Canada Border Services Agency",
+                "remote": false,
+                "city": "Fredericton",
+                "province": "NB",
+                "day": 2,
+                "month": "January",
+                "recommended": false
+            }
+        ] %}
+
+        <header data-c-overlay="black(80)" style="background-image: url('https://images.unsplash.com/photo-1568682285147-28658b5fb51b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80')" data-c-padding="tb(triple)" data-c-align="base(center) tl(left)">
+            <div data-c-container="large">
+                <h1 data-c-color="white" data-c-font-size="h1">Browse Jobs</h1>
+                <div data-c-margin="top(double)">
+                    <nav aria-label="breadcrumb" data-c-breadcrumbs data-c-color="white">
+                        <ol> 
+                            <li>
+                                <a href="#link-to-page" title="This is the title of the page link.">Talent Cloud</a> <i class="material-icons">arrow_right</i> 
+                            </li>
+                            <li>
+                                <a aria-current="page" href="#link-to-page" title="This is the title of the page link.">Browse Jobs</a> <i class="material-icons">arrow_right</i> 
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div data-c-container="large">
+            <div data-c-grid>
+                <div data-c-grid-item="base(1of1) tl(1of3)" class="tc-filters">
+                    <div data-c-padding="tb(triple)">
+                        <div data-c-grid="gutter middle">
+                            <div data-c-grid-item="base(1of2) tl(1of1)">
+                                <h2 data-c-font-size="h4">Filter Jobs</h2>
+                            </div>
+                            <div data-c-grid-item="base(1of2)" data-c-align="base(right)" class="tc-filter-toggle">
+                                <button id="tc-filter-trigger"><span class="show">Show</span><span class="hide">Hide</span> Filters</button>
+                            </div>
+                        </div>
+                        <div id="tc-filter-content">
+                            <p data-c-font-size="small" data-c-margin="top(normal) bottom(double)">Use these filters to narrow your job search. <span data-c-font-weight="bold">Results will filter automatically.</span> The "Save Filters" button at the bottom will save your filters so that jobs will automatically be filtered when you return.</p>
+                            <form data-c-grid="gutter middle">
+                                <div data-c-grid-item="base(1of1)" data-c-input="select">
+                                    <label for="SEL2">Preferred Language</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <i class="material-icons">
+                                            arrow_drop_down
+                                        </i>
+                                        <select id="SEL2">
+                                            <option disabled selected>Select a language...</option>
+                                            <option>Bilingual</option>
+                                            <option>English Essential</option>
+                                            <option>French Essential</option>
+                                        </select>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
+                                    <label for="NUM2">Min. Duration</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <input id="NUM2" placeholder="e.g. 3" type="number" />
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
+                                    <label for="NUM2">Max Duration</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <input id="NUM2" placeholder="e.g. 12" type="number" />
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
+                                    <label for="NUM2">Min. Salary</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <input id="NUM2" placeholder="e.g. 40000" type="number" />
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
+                                    <label for="NUM2">Max Salary</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <input id="NUM2" placeholder="e.g. 85000" type="number" />
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(3of4)" data-c-input="select">
+                                    <label for="SEL2">Locations</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <i class="material-icons">
+                                            arrow_drop_down
+                                        </i>
+                                        <select id="SEL2">
+                                            <option disabled selected>Add a location...</option>
+                                            <option>Ottawa, ON</option>
+                                            <option>Fredericton, NB</option>
+                                            <option>Montreal, QC</option>
+                                        </select>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(1of4)">
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded" class="tc-filter-add">
+                                        +
+                                    </button>   
+                                </div>
+                                <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
+                                    <div data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>Ottawa, ON&nbsp;&nbsp;&nbsp;-</span></div>
+                                </div>
+                                <div data-c-input="checkbox" data-c-grid-item="base(1of1)">
+                                    <label>Show jobs that:</label>
+                                    <span>Required</span>
+                                    <div data-c-background="white(100)">
+                                        <label for="cA1">
+                                            <input
+                                                id="cA1"
+                                                type="checkbox"/>
+                                            <span>Allow Remote Work</span>
+                                        </label>
+                                        <label for="cA2">
+                                            <input
+                                                id="cA2"
+                                                type="checkbox"/>
+                                            <span>Allow Telework</span>
+                                        </label>
+                                        <label for="cA3">
+                                            <input
+                                                id="cA3"
+                                                type="checkbox"/>
+                                            <span>Allow Flexible Hours</span>
+                                        </label>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(3of4)" data-c-input="select">
+                                    <label for="SEL2">Departments</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <i class="material-icons">
+                                            arrow_drop_down
+                                        </i>
+                                        <select id="SEL2">
+                                            <option disabled selected>Add a department...</option>
+                                            <option>Treasury Board of Canada Secretariat</option>
+                                            <option>Canada Border Services Agency</option>
+                                            <option>Finance Canada</option>
+                                        </select>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(1of4)">
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded" class="tc-filter-add">
+                                        +
+                                    </button>   
+                                </div>
+                                <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
+                                    <div data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>Treasury Board of Canada Secretariat&nbsp;&nbsp;&nbsp;-</span></div>
+                                </div>
+                                <div data-c-grid-item="base(3of4)" data-c-input="select">
+                                    <label for="SEL2">Classifications</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <i class="material-icons">
+                                            arrow_drop_down
+                                        </i>
+                                        <select id="SEL2">
+                                            <option disabled selected>Add a classification...</option>
+                                            <option>CS-1</option>
+                                            <option>CS-2</option>
+                                            <option>CS-3</option>
+                                        </select>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(1of4)">
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded" class="tc-filter-add">
+                                        +
+                                    </button>   
+                                </div>
+                                <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
+                                    <div data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>CS-1&nbsp;&nbsp;&nbsp;-</span></div>
+                                </div>
+                                <div data-c-grid-item="base(1of1)">
+                                    <hr data-c-margin="bottom(normal)">
+                                </div>
+                                <div data-c-grid-item="base(1of2)">
+                                    <button data-c-button="outline(c3)" data-c-radius="rounded">Reset Filters</button>
+                                </div>
+                                <div data-c-grid-item="base(1of2)" data-c-align="base(right)">
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded">Save Filters</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div data-c-grid-item="base(1of1) tl(2of3)">
+                    <div data-c-padding="top(triple)" class="tc-recommendations">
+                        <div data-c-grid="gutter middle">
+                            <div data-c-grid-item="base(1of1) tp(1of2)" data-c-align="base(center) tp(left)">
+                                <h2 data-c-font-size="h2">Job Recommendations</h2>
+                            </div>
+                            <div data-c-grid-item="base(1of1) tp(1of2)" data-c-align="base(center) tp(right)">
+                                <button data-c-button="outline(c1)"  data-c-radius="rounded" id="tc-recommendation-trigger">
+                                    <span class="show">Show</span><span class="hide">Hide</span> Recommendations
+                                </button>
+                            </div>
+                        </div>
+                        <div id="tc-recommendation-content">
+                            <p data-c-margin="top(triple) bottom(normal)">Based on your saved filters and the skills in your profile, we've found a few jobs that might interest you:</p>
+                            <div data-c-grid="gutter top">
+                                {% for job in jobs %}
+                                    {% if job.recommended == true %}
+                                        <div data-c-grid-item="ds(1of2)">
+                                            {% include "components/recommendation.twig" %}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-c-padding="tb(triple)" class="tc-jobs-list">
+                        <div data-c-grid="gutter middle">
+                            <div data-c-grid-item="base(1of1) tp(1of2)" data-c-align="base(center) tp(left)">
+                                <h2 data-c-font-size="h2">Browse All Jobs</h2>
+                            </div>
+                            <div data-c-grid-item="base(1of1) tp(1of2)" data-c-align="base(center) tp(right)">
+                                <button data-c-button="outline(c1)" data-c-radius="rounded">
+                                    Reset All Filters
+                                </button>
+                            </div>
+                        </div>
+                        {# tc-job-filter has a few special classes that can be manipulated to alter the visual state of the filter. down can be used to indicate the list is being filtered down, up for up, and unused makes filters appear out of use when another filter is being used. #}
+                        <p data-c-margin="top(triple) bottom(normal)">
+                            Sort Results by:
+                        </p>
+                        <p data-c-margin="bottom(normal)">
+                            <button class="unused tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Classification</button>
+                            <button class="down tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Job Title</button>
+                            <button class="unused tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Department</button>
+                            <button class="unused tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Salary</button>
+                            <button class="unused tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Deadline</button></p>
+                        {% for job in jobs %}
+                            {% include "components/summary.twig" %}
+                        {% endfor %}
+                        <div data-c-align="center" data-c-padding="top(double)">
+                            <button data-c-button="solid(c1)" data-c-radius="rounded">
+                                Load More Jobs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Clone's JavaScript #}
+        <script src="js/clone/clone.min.js"></script>
+
+        {# Your JavaScript #}
+        <script src="js/app.js"></script>
+
+    </body>
+
+</html>
