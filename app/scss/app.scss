@@ -165,6 +165,10 @@ $clone-grid-gutter: $clone-padding;
             display: none;
         }
     }
+    .tc-filter-pill {
+        border: none;
+        cursor: pointer;
+    }
     #tc-recommendation-trigger {
         .show {
             display: none;
