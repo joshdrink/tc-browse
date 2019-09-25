@@ -137,6 +137,12 @@ $clone-grid-gutter: $clone-padding;
             }
         }
     }
+    .tc-button-reset {
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+    }
     .tc-filters {
         position: relative;
         @media #{$clone-tablet-landscape} {
@@ -209,6 +215,11 @@ $clone-grid-gutter: $clone-padding;
     #tc-filter-content {
         &.hidden {
             display: none;
+        }
+        @media #{$clone-tablet-landscape} {
+            &.hidden {
+                display: block;
+            }
         }
     }
     .tc-filter-list {

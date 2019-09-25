@@ -134,12 +134,13 @@
                                 <h2 data-c-font-size="h4">Filter Jobs</h2>
                             </div>
                             <div data-c-grid-item="base(1of2)" data-c-align="base(right)" class="tc-filter-toggle">
-                                <button id="tc-filter-trigger"><span class="show">Show</span><span class="hide">Hide</span> Filters</button>
+                                <button id="tc-filter-trigger" class="tc-button-reset"><span class="show">Show</span><span class="hide">Hide</span> Filters</button>
                             </div>
                         </div>
                         <div id="tc-filter-content">
-                            <p data-c-font-size="small" data-c-margin="top(normal) bottom(double)">Use these filters to narrow your job search. <span data-c-font-weight="bold">Results will filter automatically.</span> The "Save Filters" button at the bottom will save your filters so that jobs will automatically be filtered when you return.</p>
+                            <p data-c-font-size="small" data-c-margin="top(normal) bottom(double)">Use these filters to narrow your job search. Use the <span data-c-font-weight="bold">Search</span> button at the bottom of the filters to submit your query.</p>
                             <form data-c-grid="gutter middle">
+                                {# Keyword #}
                                 <div data-c-grid-item="base(1of1)" data-c-input="text">
                                     <label for="TI2">Search by Keyword</label>
                                     <span>Required</span>
@@ -148,6 +149,7 @@
                                     </div>
                                     <span>This input has an error.</span>
                                 </div>
+                                {# Language #}
                                 <div data-c-grid-item="base(1of1)" data-c-input="select">
                                     <label for="SEL2">Preferred Language</label>
                                     <span>Required</span>
@@ -164,6 +166,7 @@
                                     </div>
                                     <span>This input has an error.</span>
                                 </div>
+                                {# Term Length #}
                                 <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
                                     <label for="NUM2">Min. Duration</label>
                                     <span>Required</span>
@@ -180,7 +183,8 @@
                                     </div>
                                     <span>This input has an error.</span>
                                 </div>
-                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
+                                {# Salary #}
+                                <div data-c-input="number" data-c-grid-item="base(1of1)">
                                     <label for="NUM2">Min. Salary</label>
                                     <span>Required</span>
                                     <div>
@@ -188,14 +192,7 @@
                                     </div>
                                     <span>This input has an error.</span>
                                 </div>
-                                <div data-c-input="number" data-c-grid-item="base(1of1) tl(1of2)">
-                                    <label for="NUM2">Max Salary</label>
-                                    <span>Required</span>
-                                    <div>
-                                        <input id="NUM2" placeholder="e.g. 85000" type="number" />
-                                    </div>
-                                    <span>This input has an error.</span>
-                                </div>
+                                {# Location and Remote/Tele/Flex #}
                                 <div data-c-grid-item="base(3of4)" data-c-input="select">
                                     <label for="SEL2">Locations</label>
                                     <span>Required</span>
@@ -245,30 +242,7 @@
                                     </div>
                                     <span>This input has an error.</span>
                                 </div>
-                                <div data-c-grid-item="base(3of4)" data-c-input="select">
-                                    <label for="SEL2">Departments</label>
-                                    <span>Required</span>
-                                    <div>
-                                        <i class="material-icons">
-                                            arrow_drop_down
-                                        </i>
-                                        <select id="SEL2">
-                                            <option disabled selected>Add a department...</option>
-                                            <option>Treasury Board of Canada Secretariat</option>
-                                            <option>Canada Border Services Agency</option>
-                                            <option>Finance Canada</option>
-                                        </select>
-                                    </div>
-                                    <span>This input has an error.</span>
-                                </div>
-                                <div data-c-grid-item="base(1of4)">
-                                    <button data-c-button="outline(c1)" data-c-radius="rounded" class="tc-filter-add">
-                                        +
-                                    </button>   
-                                </div>
-                                <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
-                                    <button title="Remove this filter." class="tc-filter-pill" data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>Treasury Board of Canada Secretariat&nbsp;&nbsp;&nbsp;-</span></button>
-                                </div>
+                                {# Classification #}
                                 <div data-c-grid-item="base(3of4)" data-c-input="select">
                                     <label for="SEL2">Classifications</label>
                                     <span>Required</span>
@@ -293,14 +267,52 @@
                                 <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
                                     <button title="Remove this filter." class="tc-filter-pill" data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>CS-1&nbsp;&nbsp;&nbsp;-</span></button>
                                 </div>
-                                <div data-c-grid-item="base(1of1)">
-                                    <hr data-c-margin="bottom(normal)">
+                                {# Departments #}
+                                <div data-c-grid-item="base(3of4)" data-c-input="select">
+                                    <label for="SEL2">Departments</label>
+                                    <span>Required</span>
+                                    <div>
+                                        <i class="material-icons">
+                                            arrow_drop_down
+                                        </i>
+                                        <select id="SEL2">
+                                            <option disabled selected>Add a department...</option>
+                                            <option>Treasury Board of Canada Secretariat</option>
+                                            <option>Canada Border Services Agency</option>
+                                            <option>Finance Canada</option>
+                                        </select>
+                                    </div>
+                                    <span>This input has an error.</span>
+                                </div>
+                                <div data-c-grid-item="base(1of4)">
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded" class="tc-filter-add">
+                                        +
+                                    </button>   
+                                </div>
+                                <div data-c-grid-item="base(1of1)" data-c-margin="bottom(normal)" class="tc-filter-list">
+                                    <button title="Remove this filter." class="tc-filter-pill" data-c-tag="c2" data-c-radius="pill" data-c-font-size="small"><span>Treasury Board of Canada Secretariat&nbsp;&nbsp;&nbsp;-</span></button>
                                 </div>
                                 <div data-c-grid-item="base(1of2)">
                                     <button data-c-button="outline(c3)" data-c-radius="rounded">Reset Filters</button>
                                 </div>
                                 <div data-c-grid-item="base(1of2)" data-c-align="base(right)">
-                                    <button data-c-button="outline(c1)" data-c-radius="rounded">Save Filters</button>
+                                    <button data-c-button="outline(c1)" data-c-radius="rounded">Search</button>
+                                </div>
+                                <div data-c-grid-item="base(1of1)">
+                                    <hr data-c-margin="tb(normal)">
+                                </div>
+                                <div data-c-grid-item="base(1of1)" data-c-align="base(center)">
+                                    <p data-c-margin="bottom(double)">The button below will save your current filters to your profile. This means that any time you return to the browse jobs page, jobs will automatically filter by your saved filters.</p>
+                                    <p data-c-margin="bottom(double)">
+                                        <button data-c-button="solid(c1)" data-c-radius="rounded">
+                                            Save My Filters
+                                        </button>
+                                    </p>
+                                    <p>
+                                        <button class="tc-button-reset" data-c-dialog-id="example-dialog-01" data-c-dialog-action="open" type="button">
+                                            Delete my Saved Filters
+                                        </button>
+                                    </p>
                                 </div>
                             </form>
                         </div>
@@ -338,14 +350,14 @@
                                 <h2 data-c-font-size="h2">Browse All Jobs</h2>
                             </div>
                             <div data-c-grid-item="base(1of1) tp(1of2)" data-c-align="base(center) tp(right)">
-                                <button data-c-button="outline(c1)" data-c-radius="rounded">
-                                    Reset All Filters
+                                <button data-c-button="outline(c3)" data-c-radius="rounded">
+                                    Reset Filters
                                 </button>
                             </div>
                         </div>
                         {# tc-job-filter has a few special classes that can be manipulated to alter the visual state of the filter. down can be used to indicate the list is being filtered down, up for up, and unused makes filters appear out of use when another filter is being used. #}
                         <p data-c-margin="top(triple) bottom(normal)">
-                            Sort Results by:
+                            Sort <span data-c-font-weight="bold" data-c-color="c2">34</span> results by:
                         </p>
                         <p data-c-margin="bottom(normal)">
                             <button class="unused tc-job-filter"><span class="tc-filter-icon"><i class="material-icons">arrow_drop_up</i><i class="material-icons">arrow_drop_down</i></span>Classification</button>
@@ -358,7 +370,84 @@
                         {% endfor %}
                         <div data-c-align="center" data-c-padding="top(double)">
                             <button data-c-button="solid(c1)" data-c-radius="rounded">
-                                Load More Jobs
+                                Load 5 More Jobs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- This overlay is required somewhere on the site, but not necessarily next to the dialog.-->
+        <div data-c-dialog-overlay></div>
+
+        <!-- Actual Dialog -->
+        <div
+            aria-hidden="true"
+            aria-describedby="example-dialog-01-description"
+            aria-labelledby="example-dialog-01-title"
+            data-c-dialog
+            data-c-dialog-id="example-dialog-01"
+            data-c-padding="top(double) bottom(double)"
+            role="dialog">
+            <div
+                data-c-background="white(100)"
+                data-c-radius="rounded">
+                <div
+                    data-c-padding="tb(normal) right(triple) left(normal)"
+                    data-c-border="bottom(thin, solid, black)"
+                    data-c-background="c1(100)">
+                    <h5
+                        data-c-font-size="h4"
+                        id="example-dialog-01-title"
+                        data-c-dialog-focus
+                        data-c-font-weight="bold"
+                        data-c-color="white">
+                        Are you sure?
+                    </h5>
+                    <!-- This subtitle p can be removed if a subtitle isn't needed. -->
+                    <p
+                        data-c-font-size="h5"
+                        data-c-margin="top(half)"
+                        data-c-color="white">
+                        You're about to delete your saved filters.
+                    </p>
+                    <button
+                        data-c-dialog-action="close"
+                        data-c-dialog-id="example-dialog-01"
+                        type="button"
+                        data-c-color="white">
+                        <i class="material-icons">close</i>
+                    </button>
+                </div>
+                <div
+                    data-c-border="bottom(thin, solid, black)"
+                    data-c-padding="normal">
+                    <div id="example-dialog-01-description">
+                        <p>By deleting your saved filters, jobs will no longer be filtered when you return to this page.</p>
+                    </div>
+                </div>
+                <!-- The following dialog actions can be customized depending on the dialog. -->
+                <div data-c-padding="normal">
+                    <div data-c-grid="gutter middle">
+                        <div data-c-grid-item="base(1of2)">
+                            <button
+                                data-c-button="outline(slow)"
+                                data-c-radius="rounded"
+                                data-c-dialog-action="close"
+                                data-c-dialog-id="example-dialog-01">
+                                Cancel
+                            </button>
+                        </div>
+                        <div
+                            data-c-grid-item="base(1of2)"
+                            data-c-alignment="base(right)">
+                            <button
+                                data-c-button="solid(go)"
+                                data-c-radius="rounded"
+                                data-c-dialog-action="close"
+                                data-c-dialog-id="example-dialog-01">
+                                Okay
                             </button>
                         </div>
                     </div>
